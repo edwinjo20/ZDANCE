@@ -76,8 +76,14 @@ class Cours
     /**
      * @var Collection<int, AdhCours>
      */
-    #[ORM\ManyToMany(targetEntity: AdhCours::class, mappedBy: 'adherent')]
+    #[ORM\OneToMany(mappedBy: 'cours', targetEntity: AdhCours::class)]
     private Collection $adhCours;
+
+    /**
+     * @var Collection<int, Evenements>
+     */
+    #[ORM\OneToMany(targetEntity: Evenements::class, mappedBy: 'cours')]
+    private Collection $evenements;
 
     
 
@@ -91,6 +97,7 @@ class Cours
         $this->isFull = false;
         $this->isPopulated = false;
         $this->adhCours = new ArrayCollection();
+        $this->evenements = new ArrayCollection();
 
     }
 
@@ -242,23 +249,34 @@ class Cours
         return $this->adhCours;
     }
 
-    public function addAdhCour(AdhCours $adhCour): static
+    /**
+     * @return Collection<int, Evenements>
+     */
+    public function getEvenements(): Collection
     {
-        if (!$this->adhCours->contains($adhCour)) {
-            $this->adhCours->add($adhCour);
-            $adhCour->addAdherent($this);
+        return $this->evenements;
+    }
+
+    public function addEvenement(Evenements $evenement): static
+    {
+        if (!$this->evenements->contains($evenement)) {
+            $this->evenements->add($evenement);
+            $evenement->setCours($this);
         }
 
         return $this;
     }
 
-    public function removeAdhCour(AdhCours $adhCour): static
+    public function removeEvenement(Evenements $evenement): static
     {
-        if ($this->adhCours->removeElement($adhCour)) {
-            $adhCour->removeAdherent($this);
+        if ($this->evenements->removeElement($evenement)) {
+            // set the owning side to null (unless already changed)
+            if ($evenement->getCours() === $this) {
+                $evenement->setCours(null);
+            }
         }
 
         return $this;
     }
-
+    
 }

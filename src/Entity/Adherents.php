@@ -136,6 +136,10 @@ private ?string $indexAdh = null;
      * Relation avec la table EvtPresence (OneToMany)
      */
 
+     #[ORM\OneToMany(mappedBy: 'adherent', targetEntity: AdhCours::class)]
+    private Collection $adhCours;
+
+
     public function __construct(Users $user)
     {
         $this->sexeAdh = "F";
@@ -143,7 +147,7 @@ private ?string $indexAdh = null;
         $this->paiements = new ArrayCollection();
         $this->inscriptions = new ArrayCollection();
         $this->alertes = new ArrayCollection();
-
+        $this->adhCours = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -349,6 +353,10 @@ private ?string $indexAdh = null;
         return $this->inscriptions;
     }
 
+    public function getAdhCours(): Collection
+{
+    return $this->adhCours;
+}
 
  
 }

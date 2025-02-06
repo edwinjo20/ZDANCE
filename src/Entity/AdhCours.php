@@ -1,57 +1,47 @@
-<?php
+<?php 
 
 namespace App\Entity;
 
 use App\Repository\AdhCoursRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AdhCoursRepository::class)]
+#[ORM\Table(name: "adh_cours", 
+uniqueConstraints: [new ORM\UniqueConstraint(name: "evt_presence_unique", columns: ["id_evt", "id_adh"])],
+indexes: [new ORM\Index(name: "FK_EVT_PRESENCE_ID_ADH", columns: ["id_adh"])]
+)]
 class AdhCours
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    #[ORM\ManyToOne(targetEntity: Adherents::class, inversedBy: 'adhCours')]
+    #[ORM\JoinColumn(name: 'id_adh', referencedColumnName: 'id_adh', nullable: false, onDelete: 'CASCADE')]
+    private ?Adherents $adherent = null;
 
-    /**
-     * @var Collection<int, Cours>
-     */
-    #[ORM\ManyToMany(targetEntity: Cours::class, inversedBy: 'adhCours')]
-    private Collection $adherent;
+    #[ORM\Id]
+    #[ORM\ManyToOne(targetEntity: Cours::class, inversedBy: 'adhCours')]
+    #[ORM\JoinColumn(name: 'id_cours', referencedColumnName: 'id_cours', nullable: false, onDelete: 'CASCADE')]
+    private ?Cours $cours = null;
 
-    public function __construct()
-    {
-        $this->adherent = new ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return Collection<int, Cours>
-     */
-    public function getAdherent(): Collection
+    public function getAdherent(): ?Adherents
     {
         return $this->adherent;
     }
 
-    public function addAdherent(Cours $adherent): static
+    public function setAdherent(?Adherents $adherent): static
     {
-        if (!$this->adherent->contains($adherent)) {
-            $this->adherent->add($adherent);
-        }
-
+        $this->adherent = $adherent;
         return $this;
     }
 
-    public function removeAdherent(Cours $adherent): static
+    public function getCours(): ?Cours
     {
-        $this->adherent->removeElement($adherent);
+        return $this->cours;
+    }
 
+    public function setCours(?Cours $cours): static
+    {
+        $this->cours = $cours;
         return $this;
     }
+
 }
