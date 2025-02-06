@@ -21,7 +21,7 @@ class EvtPresence
      * @ORM\JoinColumn(name="id_evt", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
      #[ORM\Id]
-     #[ORM\ManyToOne(targetEntity: Evenements::class, inversedBy: 'evtPresences')]
+     #[ORM\ManyToOne(targetEntity: Evenements::class, inversedBy: 'Evt_Presence')]
      #[ORM\JoinColumn(name: 'id_evt', referencedColumnName: 'id_evt', nullable: false, options: ["index" => false])]
      private ?Evenements $evenement = null;
     
@@ -31,7 +31,7 @@ class EvtPresence
 
 
      #[ORM\Id]
-     #[ORM\ManyToOne(targetEntity: Adherents::class, inversedBy: 'evtPresences')]
+     #[ORM\ManyToOne(targetEntity: Adherents::class, inversedBy: 'Evt_Presence')]
      #[ORM\JoinColumn(name: 'id_adh', referencedColumnName: 'id_adh', nullable: false,options: ["index" => false])]
      private ?Adherents $adherent = null;
 
