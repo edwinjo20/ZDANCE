@@ -4,13 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Salles;
 use App\Form\SallesType;
+use App\Service\EntityFormatterService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/salles', name: 'salles.')]
+#[Route('admins/salles', name: 'salles.')]
 final class SallesController extends AbstractController
 {
     #[Route('', name: 'index')]
@@ -51,6 +52,17 @@ final class SallesController extends AbstractController
         return $this->render('salles/new.html.twig', [
             'form' => $form->createView(),
        
+        ]);
+    }
+
+    #[Route('/{id}/show', name: 'disciplines.show')]
+    public function show(Salles $discipline, EntityFormatterService $formatterService): Response
+    {
+        return $this->render('disciplines/show.html.twig', [
+            'discipline' => $discipline,
+            'imagePath' => $formatterService->getImagePath($discipline->getPhotoSalle(), 'uploads/salles/'),
+            'nomSalle' => $formatterService->formatName($discipline->getNomSalle()),
+            'quota' => $formatterService->formatQuota($discipline->getQuotaSalle())
         ]);
     }
 }

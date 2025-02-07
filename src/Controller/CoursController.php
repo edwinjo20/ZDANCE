@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 
-#[Route('/cours', name: 'cours.')]
+#[Route('admins/cours', name: 'cours.')]
 
 final class CoursController extends AbstractController
 {
@@ -45,4 +45,29 @@ final class CoursController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    #[Route('/', name: 'new',methods:['POST','GET'])]
+    public function edit(Request $request,EntityManagerInterface $entityManager): Response
+    {
+        $cours = new Cours();
+        $form = $this->createForm(CoursType::class, $cours);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) { 
+            try {
+            $entityManager->persist($cours);
+            $entityManager->flush();
+            $this->addFlash('success', 'Discipline modifiée avec succès.');
+            return $this->redirectToRoute('cours.index');
+
+        } catch (\Exception $e) {
+            $this->addFlash('error', 'Une erreur est survenue : ' . $e->getMessage());
+        }
+    }
+        
+        return $this->render('cours/new.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    
 }

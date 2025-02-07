@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adherents index{% endblock %}
+
+{% block body %}
+    <h1>Adherents index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdAdh</th>
+                <th>NomAdh</th>
+                <th>PrenomAdh</th>
+                <th>RepLegalAdh</th>
+                <th>SexeAdh</th>
+                <th>EmailAdh</th>
+                <th>Email2Adh</th>
+                <th>TelAdh</th>
+                <th>Tel2Adh</th>
+                <th>AdrAdh</th>
+                <th>CpAdh</th>
+                <th>VilleAdh</th>
+                <th>DtNaissanceAdh</th>
+                <th>PhotoAdh</th>
+                <th>PassSanitaireAdh</th>
+                <th>IndexAdh</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for adherent in adherents %}
+            <tr>
+                <td>{{ adherent.idAdh }}</td>
+                <td>{{ adherent.nomAdh }}</td>
+                <td>{{ adherent.prenomAdh }}</td>
+                <td>{{ adherent.repLegalAdh }}</td>
+                <td>{{ adherent.sexeAdh }}</td>
+                <td>{{ adherent.emailAdh }}</td>
+                <td>{{ adherent.email2Adh }}</td>
+                <td>{{ adherent.telAdh }}</td>
+                <td>{{ adherent.tel2Adh }}</td>
+                <td>{{ adherent.adrAdh }}</td>
+                <td>{{ adherent.cpAdh }}</td>
+                <td>{{ adherent.villeAdh }}</td>
+                <td>{{ adherent.dtNaissanceAdh ? adherent.dtNaissanceAdh|date('Y-m-d') : '' }}</td>
+                <td>{{ adherent.photoAdh }}</td>
+                <td>{{ adherent.passSanitaireAdh }}</td>
+                <td>{{ adherent.indexAdh }}</td>
+                <td>
+                    <a href="{{ path('app_adherents_show', {'idAdh': adherent.idAdh}) }}">show</a>
+                    <a href="{{ path('app_adherents_edit', {'idAdh': adherent.idAdh}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_adherents_new') }}">Create new</a>
+{% endblock %}

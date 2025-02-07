@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adherents{% endblock %}
+
+{% block body %}
+    <h1>Adherents</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdAdh</th>
+                <td>{{ adherent.idAdh }}</td>
+            </tr>
+            <tr>
+                <th>NomAdh</th>
+                <td>{{ adherent.nomAdh }}</td>
+            </tr>
+            <tr>
+                <th>PrenomAdh</th>
+                <td>{{ adherent.prenomAdh }}</td>
+            </tr>
+            <tr>
+                <th>RepLegalAdh</th>
+                <td>{{ adherent.repLegalAdh }}</td>
+            </tr>
+            <tr>
+                <th>SexeAdh</th>
+                <td>{{ adherent.sexeAdh }}</td>
+            </tr>
+            <tr>
+                <th>EmailAdh</th>
+                <td>{{ adherent.emailAdh }}</td>
+            </tr>
+            <tr>
+                <th>Email2Adh</th>
+                <td>{{ adherent.email2Adh }}</td>
+            </tr>
+            <tr>
+                <th>TelAdh</th>
+                <td>{{ adherent.telAdh }}</td>
+            </tr>
+            <tr>
+                <th>Tel2Adh</th>
+                <td>{{ adherent.tel2Adh }}</td>
+            </tr>
+            <tr>
+                <th>AdrAdh</th>
+                <td>{{ adherent.adrAdh }}</td>
+            </tr>
+            <tr>
+                <th>CpAdh</th>
+                <td>{{ adherent.cpAdh }}</td>
+            </tr>
+            <tr>
+                <th>VilleAdh</th>
+                <td>{{ adherent.villeAdh }}</td>
+            </tr>
+            <tr>
+                <th>DtNaissanceAdh</th>
+                <td>{{ adherent.dtNaissanceAdh ? adherent.dtNaissanceAdh|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>PhotoAdh</th>
+                <td>{{ adherent.photoAdh }}</td>
+            </tr>
+            <tr>
+                <th>PassSanitaireAdh</th>
+                <td>{{ adherent.passSanitaireAdh }}</td>
+            </tr>
+            <tr>
+                <th>IndexAdh</th>
+                <td>{{ adherent.indexAdh }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_adherents_index') }}">back to list</a>
+
+    <a href="{{ path('app_adherents_edit', {'idAdh': adherent.idAdh}) }}">edit</a>
+
+    {{ include('adherents/_delete_form.html.twig') }}
+{% endblock %}

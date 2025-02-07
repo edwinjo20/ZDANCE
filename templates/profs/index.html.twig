@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profs index{% endblock %}
+
+{% block body %}
+    <h1>Profs index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdProf</th>
+                <th>NomProf</th>
+                <th>PrenomProf</th>
+                <th>TelProf</th>
+                <th>EmailProf</th>
+                <th>Tel2Prof</th>
+                <th>PhotoProf</th>
+                <th>PresentationProf</th>
+                <th>IndexProf</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for prof in profs %}
+            <tr>
+                <td>{{ prof.idProf }}</td>
+                <td>{{ prof.nomProf }}</td>
+                <td>{{ prof.prenomProf }}</td>
+                <td>{{ prof.telProf }}</td>
+                <td>{{ prof.emailProf }}</td>
+                <td>{{ prof.tel2Prof }}</td>
+                <td>{{ prof.photoProf }}</td>
+                <td>{{ prof.presentationProf }}</td>
+                <td>{{ prof.indexProf }}</td>
+                <td>
+                    <a href="{{ path('app_profs_show', {'idProf': prof.idProf}) }}">show</a>
+                    <a href="{{ path('app_profs_edit', {'idProf': prof.idProf}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_profs_new') }}">Create new</a>
+{% endblock %}

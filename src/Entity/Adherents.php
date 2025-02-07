@@ -140,10 +140,9 @@ private ?string $indexAdh = null;
     private Collection $adhCours;
 
 
-    public function __construct(Users $user)
+    public function __construct()
     {
         $this->sexeAdh = "F";
-        $this->users = $user;
         $this->paiements = new ArrayCollection();
         $this->inscriptions = new ArrayCollection();
         $this->alertes = new ArrayCollection();
