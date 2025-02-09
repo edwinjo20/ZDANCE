@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Administrateur</title>
+    <style>
+        .dashboard {
+            display: flex;
+            gap: 20px;
+        }
+        .counter {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tableau de Bord Administrateur</h1>
+    <div class="dashboard">
+        <div class="counter">
+            <h3>Professeurs</h3>
+            <p>{{ profCount }}</p>
+        </div>
+        <div class="counter">
+            <h3>Adhérents</h3>
+            <p>{{ adherantCount }}</p>
+        </div>
+        <div class="counter">
+            <h3>Cours</h3>
+            <p>{{ coursCount }}</p>
+        </div>
+    </div>
+</body>
+</html>

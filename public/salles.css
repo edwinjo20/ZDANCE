@@ -1,0 +1,64 @@
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    margin: 50px 0;
+    font-size: 2rem;
+}
+
+.salle-card {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.salle-image {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.salle-info {
+    flex: 1;
+}
+
+.salle-nom {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.salle-adresse {
+    font-size: 1rem;
+    color: #555;
+}
+
+.btn-dark {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-dark:hover {
+    background-color: #333;
+}
+
+.cta {
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 40px;
+}

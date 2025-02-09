@@ -1,0 +1,16 @@
+<nav>
+    <ul>
+        <li><a href="{{ path('cours.index') }}">Accueil</a></li>
+        <li><a href="{{ path('cours.index') }}">Cours</a></li>
+        <li><a href="{{ path('disciplines.index') }}">Discipline</a></li>
+        <li><a href="{{ path('salles.index') }}">Salles</a></li>
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <li><a href="{{ path('cours.index') }}">Mon Profil</a></li>
+            <li><a href="{{ path('cours.index') }}">Déconnexion</a></li>
+        {% else %}
+            <li><a href="{{ path('security.login') }}">Connexion</a></li>
+            <li><a href="{{ path('cours.index') }}">Inscription</a></li>
+        {% endif %}
+    </ul>
+</nav>

@@ -1,0 +1,19 @@
+parameters:
+    upload_directory_salles: '%kernel.project_dir%/public/uploads/salles'
+    upload_directory_disciplines: '%kernel.project_dir%/public/uploads/disciplines'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Kernel.php'
+
+    # Correct service definition for EntityFormatterService
+    App\Service\EntityFormatterService:
+        arguments:
+            $urlGenerator: '@router'

@@ -1,0 +1,200 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Disciplines{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('disciplines.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center my-5 fw-bold">Disciplines</h1>
+
+        <div class="row gy-5 justify-content-center">
+            {% set disciplines = [
+                {
+                    'nom': 'Modern',
+                    'description': "Le modern' puise ses racines dans le modern'jazz auquel sont mêlées d'autres danses telles que la danse orientale, le bollywood, le street dance, le hip-hop et bien d'autres encore. Le danseur peut s'exprimer librement à travers ce type de danse tout en respectant la discipline. Le rythme favorise l'expression personnelle du corps et la communication directe avec le spectateur. C'est un moyen d'exprimer des mouvements pleins de sensualité tout en gardant l'harmonie des positions. Le modern est accessible à tous les âges. Concernant les danseurs en herbe, la danse est le meilleur moyen d'éveiller leurs corps en leur permettant de s'exprimer aisément à travers la danse et les mouvements. Quant aux adultes, c'est un mode d'expression du corps et un moyen facile pour apporter un peu de dépaysement à l'esprit. La pratique de cette danse est un moment privilégié de contact. Un sport à la fois complet et artistique faisant travailler toutes les parties du corps.",
+                    'niveau': 'All levels',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines1.png',
+                    'class': 'discipline-left'
+                },
+                {
+                    'nom': 'Danse Orientale',
+                    'description': "Dépassez-vous en pratiquant la danse orientale par une méthode simple et adaptée à tous et pour tout âge. Des musiques riches, la beauté des gestes, la grâce et la féminité, les rythmes variés, la maitrise du corps, vous transporteront. Vous travaillerez chaque partie de votre corps en dissociant les mouvements et vous constaterez que chaque partie de votre corps peut bouger sans entraîner les autres. Vous apprendrez à mettre votre féminité en avant en alliant grâce et sensualité. Cela permet de se détendre et de se sentir mieux dans sa tête et dans son corps. C’est ludique, thérapeutique et magique !",
+                    'niveau': 'Beginner friendly',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines2.png',
+                    'class': 'discipline-right'
+                },
+                {
+                    'nom': 'Hip Hop',
+                    'description': "Si apprendre le Hip Hop séduit toujours les jeunes générations, c'est qu'on y associe la performance des gymnastes avec des figures au sol ainsi que l'exigence et la précision de la danse, pour un rendu toujours très spectaculaire. L'aspect visuel fascine énormément les jeunes enfants. Contrairement à des sports imposant une discipline stricte et très sérieuse, la danse Hip Hop séduit car elle est ludique et récréative. La hiérarchie entre prof et élève disparaît très vite, ce qui permet une fois qu'on a dépassé la forme de travailler le fond avec une cohésion totale du groupe. Un cours de danse Hip Hop pour enfant, c'est partager, se coordonner aux pas des autres, canaliser son énergie tout en évacuant son stress. C'est aussi la satisfaction de la création artistique liée au dépassement de soi. Travailler sa détermination à réussir des combinaisons de mouvements et de danse, c'est aussi renforcer son estime de soi. Des valeurs auxquelles les enfants, les pré-ados et adolescents sont très sensibles. Pas d'équipement spécifique et onéreux n'est requis, ce qui permet aussi de bannir toutes les frontières sociales et d'effectuer cette activité dans le respect de l'autre sans porter de jugement de valeur.",
+                    'niveau': 'Intermediate',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines3.png',
+                    'class': 'discipline-left'
+                },
+                {
+                    'nom': 'Strong Nation',
+                    'description': "STRONG by Zumba synchronise l’entraînement par intervalles haute intensité au facteur de motivation ultime qu’est la musique. Dans chaque cours, la musique et les mouvements se synchronisent afin que vous puissiez dépasser vos seuils de tolérance limite et atteindre vos objectifs de remise en forme plus rapidement. Dans la plupart des programmes d’entraînement, la musique ne joue qu’un rôle secondaire. Mais dans STRONG by Zumba™, la musique a été soigneusement orchestrée. Elle vient stimuler la progression de l’intensité pour un entraînement total du corps. Faites travailler chaque muscle : en utilisant le poids de votre corps, vous améliorerez l’endurance, la tonification et l’apparence de vos muscles. Profitez des avantages de la post-combustion : les intervalles haute intensité vous font brûler des calories longtemps après la fin de l’entraînement. Devenez plus fort plus rapidement : en travaillant plus dur que vous ne pensiez en être capable, vous obtenez des résultats plus rapidement et atteignez des objectifs plus ambitieux. Résultat ? Une expérience de groupe unique, un cours de fitness révolutionnaire.",
+                    'niveau': 'All levels',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines1.png',
+                    'class': 'discipline-right'
+                },
+                {
+                    'nom': 'Eveil à La Danse',
+                    'description': "Le cours d'éveil dédié aux enfants de 3 à 6 ans permet de travailler sur les fondamentaux de la danse, commun à tous les styles de danse : le corps, l'espace, le temps, l'énergie, l'intention du mouvement. Le corps : Développer la conscience et la maîtrise du corps par un travail de prise de conscience du corps, travail sur l'amortissement, l’assouplissement, les équilibres, la coordination. L'espace : Maîtriser l'orientation de son corps par rapport à des repères spatiaux, par rapport à un partenaire, à occuper tout l'espace, respecter des trajectoires de déplacement, à varier les niveaux. Le temps : on apprend à varier la durée du mouvement donc sa vitesse, à insérer des pauses (le lent, le rapide, l'immobilité). On frappe le Tempo, des rythmes avec les mains, les pieds, en se déplaçant. On développe donc l’écoute musicale. Différents styles de musique sont utilisés. L'énergie :faire varier la tonicité musculaire : on apprend à se faire tout mou, à se relâcher, à se faire dur, à résister à une pression. L'intention du mouvement : la danse est un langage, un moyen d'expression. Le lien à l'imaginaire est présent en quasi permanence. La danse représente une fée, un robot, un monstre, une fleur, un animal… On apprend aussi à respecter des règles : protéger son corps et celui des autres, faire le silence lorsqu'on danse, observer les autres. Dans le plaisir, les enfants vont donc acquérir les bases de la danse et de l'écoute musicale, leur permettant d'accéder ensuite à un cours d'initiation à la danse.",
+                    'niveau': 'Beginner friendly',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines2.png',
+                    'class': 'discipline-left'
+                },
+                {
+                    'nom': 'Hiit',
+                    'description': "Les cours collectifs de HIIT sont des entraînements complets, regroupant des mouvements cardio et renforcement. Ils vous permettent d’augmenter rapidement votre condition physique générale. Cette méthode est notamment utilisée par les sportifs qui ont besoin de combler une faiblesse musculaire et qui aimeraient passer à des entraînements à exercices intensifiés. Avec une intensité plus élevée que des exercices classiques, vous solliciterez toutes vos chaînes musculaires. Votre coach est là tout au long de la séance pour veiller à ce que chaque participant exécute les postures de la bonne manière, afin d’éviter tout accident. Les cours collectifs de HIIT sont parfaits pour augmenter vos qualités d’endurance, de résistance, force, vitesse et agilité. Grâce à la diversité de mouvements, vous constaterez une réelle amélioration physique !",
+                    'niveau': 'Intermediate',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines3.png',
+                    'class': 'discipline-right'
+                },
+                {
+                    'nom': 'Majorettes / Pomp Pom Girls',
+                    'description': "Ce cours consiste à manier le bâton, le drapeau ou les pompons au rythme de musiques chorégraphiques. Discipline sportive associant des mouvements de gymnastique et des techniques de jonglage ouverte à tous. Que vous soyez débutants, confirmés, filles, garçons, enfants, adultes ou curieux, rejoignez-nous ! Energie positive, esprit d'équipe et confiance en soi ! Voilà les principales caractéristiques de ce cours. Un bâton ou une paire de pompons en mains et un pied dans le cours, vous faites déjà partie de l'équipe. Les cours sont ouverts à tous et sont adaptés à tous les niveaux.",
+                    'niveau': 'All levels',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines1.png',
+                    'class': 'discipline-left'
+                },
+                {
+                    'nom': 'Heels',
+                    'description': "Danser de manière Girly et assumée n'est pas évident, pourtant cela peut être libérateur. Assumez votre féminité, en talons, sur des sons actuels et dans la bonne humeur. Les chorégraphies travaillées exigent des mouvements propres et de l'application, mais il n'y a pas que la technique qui compte, chaque chorégraphie est une invitation à incarner un personnage, permettant ainsi de booster la confiance en soi, en développant sa féminité sans jamais atteindre la vulgarité.",
+                    'niveau': 'Beginner friendly',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines2.png',
+                    'class': 'discipline-right'
+                },
+                {
+                    'nom': 'Street Jazz',
+                    'description': "Le street jazz est un ensemble de danses venues principalement des États-Unis dans les années 1980. C’est en effet, un véritable mélange entre le hip hop et la technique du modern jazz mais dont une définition exhaustive serait utopique tant ses origines sont nombreuses, en bref il s’agit d’une danse de rue plus centrée pour les filles. Le street jazz est une des danses les plus connues et se pratique sur des musiques qui sont très rythmiques et comportant beaucoup de basses. Le Street Jazz est influencé par une musique pop très actuelle mêlant différentes énergies. Elle se caractérise par son adéquation à la musique, on y trouve de forts accents, mais également des accélérations et des ralentis. Avec le street jazz, on découvre une autre utilisation du corps et des appuis. Ce style n’a rien à voir avec de la danse contemporaine, mais on peut dire en quelque sorte qu’ils sont complémentaires. En street jazz, la position du bassin a beaucoup moins de tenue pour obtenir un style plus décontracté. On recherche plus des effets de styles qu’un travail technique de déplacement. Néanmoins, le street jazz développe sa propre technique reprenant des mouvements de modern jazz et de hip hop.",
+                    'niveau': 'Intermediate',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines3.png',
+                    'class': 'discipline-left'
+                },
+                {
+                    'nom': 'Danse Orientale Intermédiaires',
+                    'description': "La danse orientale est un art complexe. Ce cours est réservé aux personnes ayant déjà pratiqué cette danse pendant au moins deux ans et étant prêtes à atteindre un niveau semi-professionnel. L'idée est de pouvoir créer des chorégraphies dignes des compagnies de danse orientale. Ecoute, rythme, technique et rapidité d'exécution des enchaînements pour créer plusieurs chorégraphies dans l'année.",
+                    'niveau': 'All levels',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines1.png',
+                    'class': 'discipline-right'
+                },
+                {
+                    'nom': 'Initiation à La Danse',
+                    'description': "Le cours d'initiation à la danse est dédié aux enfants de 7 à 9 ans et permet de continuer le travail sur les fondamentaux de la danse, commun à tous les styles de danse : le corps, l'espace, le temps, l'énergie, l'intention du mouvement.Le corps : Développer la conscience et la maîtrise du corps par un travail de prise de conscience du corps, travail sur l'amortissement, l’assouplissement, les équilibres, la coordination. L'espace : Maîtriser l'orientation de son corps par rapport à des repères spatiaux, par rapport à un partenaire, à occuper tout l'espace, respecter des trajectoires de déplacement, à varier les niveaux. Le temps : on apprend à varier la durée du mouvement donc sa vitesse, à insérer des pauses (le lent, le rapide, l'immobilité). On frappe le Tempo, des rythmes avec les mains, les pieds, en se déplaçant. On développe donc l’écoute musicale. Différents styles de musique sont utilisés. L'énergie :faire varier la tonicité musculaire : on apprend à se faire tout mou, à se relâcher, à se faire dur, à résister à une pression. L'intention du mouvement : la danse est un langage, un moyen d'expression. Le lien à l'imaginaire est présent en quasi permanence. La danse représente une fée, un robot, un monstre, une fleur, un animal… On apprend aussi à respecter des règles : protéger son corps et celui des autres, faire le silence lorsqu'on danse, observer les autres. Dans le plaisir, les enfants vont donc acquérir les bases de la danse et de l'écoute musicale.",
+                    'niveau': 'Beginner friendly',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines2.png',
+                    'class': 'discipline-left'
+                },
+                {
+                    'nom': 'Modern Jazz',
+                    'description': "Le modern jazz puise ses influences dans la danse moderne et le jazz. Elle amène les danseurs à exprimer leurs émotions et laisser ces dernières inspirer leurs mouvements. Toujours en opposition aux règles classiques strictes, les danseurs modernes utilisent la gravité et les contractions du corps tout entier pour accentuer leurs mouvements. Le modern jazz est issu de la danse jazz américaine des années 30 et 40 que l'on associe souvent au swing et au lindy hop (on appelle d'ailleurs aujourd'hui cela jazz roots ou encore authentic jazz pour bien marquer la différence). À la fin des années 40, la danse jazz intègre les comédies musicales de Broadway pour y évoluer dans les années 50. Le modern jazz est donc une danse technique, rythmée et dynamique qui essaye de rapprocher les techniques issues de la danse classique à la danse aux racines afro-américaines, avec un soupçon d'influences diverses (acrobaties, danse contemporaine, etc.). Le modern jazz est caractérisé par la coordination des mouvements, le contrôle de la gravité et les isolations des parties du corps dans le respect d'une technique de base établie.",
+                    'niveau': 'Intermediate',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines3.png',
+                    'class': 'discipline-right'
+                },
+                {
+                    'nom': 'Fusion Orientales',
+                    'description': "Dans ce cours de fusions, on travaillera autour de la danse orientale en incorporant d'autres danses et musiques : danses du Pacifique (Ori Tahiti, Hula), Bollywood, danses latines, tribal, théâtralisation de la danse orientale etc... Cet atelier permettra de comparer les techniques, les énergies et la musicalité. Vous renforcerez ainsi votre maitrise de la danse orientale tout en enrichissant votre univers artistique. L'accent sera mis sur l'interprétation. Ce cours est destiné aux élèves ayant déjà acquis les bases de la danse orientale.",
+                    'niveau': 'Intermediate',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines3.png',
+                    'class': 'discipline-left'
+                },
+                {
+                    'nom': 'Danse en Famille',
+                    'description': "Vous souhaitez faire une activité avec votre enfant mais vous n'avez pas encore trouvé ? Pourquoi ne pas danser ensemble ? Vous pourrez apprendre à danser sur des sons actuels avec des mouvements issus de diverses influences (jazz, hip hop, danse orientale, bollywood, salsa). Amusez-vous et profitez d'un moment de complicité en famille.",
+                    'niveau': 'Intermediate',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines3.png',
+                    'class': 'discipline-right'
+                },
+                {
+                    'nom': 'DanseNFun',
+                    'description': "DANCE'N'FUN est un programme de danse et de jeux pour les plus petits. Nous ouvrons ce cours au enfants âgés de 3 à 7 ans (possibilité d’accéder au cours à partir de 2 ans et demi, selon la motricité de l’enfant). Ce programme propose une musique et des pas de danse appropriés à l'âge des participants. En suivant ce programme, les enfants peuvent vraiment être eux-mêmes et se lâcher complètement !",
+                    'niveau': 'Intermediate',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines3.png',
+                    'class': 'discipline-left'
+                },
+                {
+                    'nom': 'Cabaret Heels',
+                    'description': "Savoir danser en étant glamour, mais jamais vulgaire, telle est la devise du cabaret français. Vous apprendrez à travailler votre déhanché, votre cambré et votre souplesse sans oublier de mettre en avant la touche d’élégance à la française qui le caractérise. Apprenez les techniques des grands cabarets parisiens pour sublimer votre féminité. La différence entre Heels Dance et Cabaret Heels ? Le Heels Dance s’inspire de la pop culture, de la danse de clips, alors que le Heels Cabaret s’inspire plus des cabarets. Ce cours est accessible à tous les niveaux même débutants. Enfilez une tenue confortable, n’hésitez pas à être sexy, le cours est sensuel. Aux pieds, des talons propres qui tiennent bien la cheville.",
+                    'niveau': 'Intermediate',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines3.png',
+                    'class': 'discipline-right'
+                },
+                {
+                    'nom': 'Cardio Barre',
+                    'description': "Vous souhaitez tonifier votre corps en prenant du plaisir ? Le cardio barre est la discipline faite pour vous ! Mélange de fitness et de danse, vous allez découvrir une nouvelle façon de faire du sport sans pour autant perdre votre motivation au fil du temps. Cette discipline basée sur l’équilibre, la coordination et la force est le parfait mélange de tout ce dont votre corps a besoin : dynamisme et renforcement. Ainsi, l’aspect danse vous permet de travailler l’équilibre, renforcer les muscles profonds, accroître la souplesse des articulations et des muscles mais également développer une certaine grâce propre à la danse classique. C’est donc très complet pour l’ensemble du corps. L’aspect fitness quant à lui vous permet de travailler efficacement votre cardio et favorise la gestion de votre souffle. Les séances se déroulent sans pause pour que le rythme cardiaque augmente ! Allier ces deux notions vous permettra de solliciter tous vos muscles et devenir un vrai sportif. Le cardio barre est un sport adapté à tous ! Ainsi, nul besoin d’être un professionnel de la danse ou encore du fitness pour se lancer sereinement dans la discipline. Si vous êtes débutant, ne vous en faites pas ! Les cours de cardio barre reprennent les bases, il vous suffit de suivre le coach et de vous laisser aller ! Plus vous effectuerez des entraînements, plus vous vous sentirez à l’aise dans votre corps et dans les mouvements !",
+                    'niveau': 'Intermediate',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines3.png',
+                    'class': 'discipline-left'
+                }
+                ,{
+                    'nom': 'Afro',
+                    'description': "L'afro danse est caractérisée par : Les mouvements de bassin accentués : la danse afro met en avant les mouvements de bassin et de hanches, qui sont souvent lents et fluides. La synchronisation avec la musique : les pas de danse sont généralement en rythme avec la musique, ce qui donne une sensation de fluidité et de coordination. L'expression de la culture et de la communauté : la danse afro est souvent considérée comme une expression de la culture et de la communauté africaines, et est souvent dansée en groupe. L'utilisation de la musique traditionnelle africaine : la danse afro est souvent dansée sur des musiques africaines traditionnelles ou modernes, comme le Highlife, le Soukous, le Makossa, et le Kizomba, entre autres. La variété des styles : il existe différents styles de danse afro qui varient selon les régions d'Afrique d'où ils proviennent",
+                    'niveau': 'Intermediate',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines3.png',
+                    'class': 'discipline-right'
+                },
+                {
+                    'nom': 'DanseHall',
+                    'description': "Le dancehall est représenté par un style de musique et une culture à part entière. Cette danse originaire de la Jamaïque a émergé dans les années 1970 et 1980. Elle est née à partir de la musique ragga, en particulier du riddim, un style de reggae caractérisé par une mélodie répétitive, festif et un rythme rapide. Le dancehall a été influencé par plusieurs genres de musique, comme le ska, le rock steady, le funk et le disco. La danse associée au dancehall est une création des quartiers populaires jamaïcains. Ils ont été influencé par les styles de danse américains au profit du hip-hop, de la funk et du disco, mais ont également développé leur propre culture avec des mouvements uniques. La danse Dancehall est avant tout un style de danse qui permet de s'exprimer. La posture est essentielle car ce style met l'accent sur les mouvements de bassin et de hanches, qui sont souvent syncopés pour s'adapter à la rythmique de la musique Dancehall. Les pas de danse sont fluides et souples, avec des glissades, des sauts et des tours pour ajouter de la variété. Les mouvements de danse sont souvent sensuels et provocateurs, avec des mouvements lascifs et des poses suggestives. Les mains sont souvent utilisées pour accentuer les mouvements de hanches et de bassin, et permettent de donner plus d'expression à vos mouvements. Les danseurs peuvent également inclure des acrobaties comme des sauts, des tours et des glissades dans leur chorégraphie.",
+                    'niveau': 'Intermediate',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines3.png',
+                    'class': 'discipline-left'
+                },
+                {
+                    'nom': 'Fit Dance',
+                    'description': "Êtes-vous prêt à faire la fête pour être en forme ? Oubliez les séances d'exercices et laissez vous entraîner par la musique pour garder le tonus avec un programme de danse-fitness. Avant même de vous en rendre compte, vous retrouverez la forme et ferez le plein d'énergie !",
+                    'niveau': 'Intermediate',
+                    'icon': 'fa-signal',
+                    'image': 'disciplines3.png',
+                    'class': 'discipline-right'
+                }
+            ] %}
+
+            {% for discipline in disciplines %}
+                <div class="col-md-10">
+                    <div class="card discipline-card {{ discipline.class }}">
+                        <div class="card-body text-md-start text-center">
+                            <h2 class="card-title discipline-title">{{ discipline.nom }}</h2>
+                            <p class="card-text discipline-text">{{ discipline.description }}</p>
+                            <p class="discipline-level">
+                                <i class="fa-solid {{ discipline.icon }}" style="color: #8c8c8c;"></i> {{ discipline.niveau }}
+                            </p>
+                        </div>
+                        <img src="{{ asset('uploads/disciplines/' ~ discipline.image) }}" class="discipline-image" alt="{{ discipline.nom }}">
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Section CTA -->
+        <div class="cta text-center bg-light p-5 mt-5 rounded shadow">
+            <h2 class="fw-bold">Prêt à commencer à danser ?</h2>
+            <p class="lead">Rejoignez notre communauté et explorez ces styles de danse incroyables avec des instructeurs professionnels.</p>
+            <a href="#" class="btn btn-dark btn-lg mt-3">Réservez votre premier cours</a>
+        </div>
+    </div>
+{% endblock %}

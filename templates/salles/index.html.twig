@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Salles{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('salles.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="page-title">Nos Salles</h1>
+
+        {% set salles = [
+            { 
+                'nom': 'ESPACE NELSON MANDELA',
+                'adresse': '4 Avenue des Hautes Roches, 78700 Conflans-Sainte-Honorine (à côté de l’école)',
+                'photoSalle': 'nelson-mandela.jpg',
+                'planAcces': 'https://www.google.fr/maps/place/La+Maison+Des+Roches/@49.007806,2.101359,17z/data=!3m1!4b1!4m2!3m1!1s0x47e68aa4653e124d:0xfb81903d3ba6891d'
+            },
+            { 
+                'nom': 'LE STUDI-AU',
+                'adresse': '48 Rue Maurice Berteaux 78700 Conflans-Sainte-Honorine (centre ville)',
+                'photoSalle': 'studi-au.jpg',
+                'planAcces': 'https://www.google.com/maps/place/48+Rue+Maurice+Berteaux,+78700+Conflans-Sainte-Honorine'
+            },
+            { 
+                'nom': 'SALLE BOUYSSEL',
+                'adresse': 'Parc du prieuré, 78700 Conflans-Sainte-Honorine (centre ville)',
+                'photoSalle': 'bouyssel.jpg',
+                'planAcces': 'https://www.google.com/maps/place/Parc+du+Prieuré,+78700+Conflans-Sainte-Honorine'
+            },
+            { 
+                'nom': 'GYMNASE DES BASSES ROCHES',
+                'adresse': '67 rue Jean Broutin 78700 Conflans-Sainte-Honorine (quartier ZA du Renouveau)',
+                'photoSalle': 'polyvalente.jpg',
+                'planAcces': 'https://www.google.com/maps/place/67+Rue+Jean+Broutin,+78700+Conflans-Sainte-Honorine'
+            }
+        ] %}
+
+        {% for salle in salles %}
+            <div class="salle-card">
+                <img src="{{ asset('uploads/salles/' ~ salle.photoSalle) }}" alt="{{ salle.nom }}" class="salle-image">
+                <div class="salle-info">
+                    <h2 class="salle-nom">{{ salle.nom }}</h2>
+                    <p class="salle-adresse">{{ salle.adresse }}</p>
+                    <a href="{{ salle.planAcces }}" target="_blank" class="btn-dark">Voir le plan d'accès</a>
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="cta">
+    <h2>Prêt à commencer à danser ?</h2>
+    <p>Rejoignez notre communauté de danse et explorez ces styles de danse incroyables avec des instructeurs professionnels.</p>
+    <a href="#" class="btn-dark">Réservez votre premier cours</a>
+</div>
+</div>
+{% endblock %}
