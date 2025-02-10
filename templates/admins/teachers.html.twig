@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace Professeur{% endblock %}
+
+{% block body %}
+    <h1>Bienvenue, {{ teacher.name }}</h1>
+    <p>Email : {{ teacher.email }}</p>
+    <p>Téléphone : {{ teacher.phone }}</p>
+
+    <h2>Vos Cours</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Année</th>
+                <th>Discipline</th>
+                <th>Tranche d'âge</th>
+                <th>Salle</th>
+                <th>Jour</th>
+                <th>Heure</th>
+                <th>Statut</th>
+                <th>Inscrits</th>
+                <th>Contacts</th>
+                <th>Présence</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+                <tr>
+                    <td>{{ course.year }}</td>
+                    <td>{{ course.discipline }}</td>
+                    <td>{{ course.age_group }}</td>
+                    <td>{{ course.room }}</td>
+                    <td>{{ course.day }}</td>
+                    <td>{{ course.time }}</td>
+                    <td>{{ course.status }}</td>
+                    <td>{{ course.registered }}</td>
+                    <td>{{ course.contacts|join(', ') }}</td>
+                    <td><a href="#">{{ course.attendance }}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Calendrier des tâches</h2>
+    <iframe src="https://calendar.google.com/calendar/embed?src=ton_calendar_id" width="100%" height="600"></iframe>
+{% endblock %}

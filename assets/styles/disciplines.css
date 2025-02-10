@@ -1,0 +1,121 @@
+/* Conteneur principal */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* Titre principal */
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Cartes des disciplines */
+.discipline-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    gap: 40px;
+}
+
+/* Variante : Texte à gauche, image à droite */
+.discipline-left {
+    flex-direction: row;
+}
+
+/* Variante : Image à gauche, texte à droite */
+.discipline-right {
+    flex-direction: row-reverse;
+}
+
+/* Contenu des cartes */
+.card-body {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Image des disciplines */
+.discipline-image {
+    flex: 1;
+    max-width: 400px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Titres des disciplines */
+.discipline-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Texte des disciplines */
+.discipline-text {
+    font-size: 1rem;
+    color: black;
+    line-height: 1.5;
+}
+
+/* Niveau des disciplines */
+.discipline-level {
+    font-size: 0.9rem;
+    color: black;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.discipline-level i {
+    margin-right: 8px;
+}
+
+/* Section CTA */
+.cta {
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.cta h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.cta p {
+    font-size: 1.1rem;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.cta .btn-dark {
+    background-color: black;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .discipline-card {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    .discipline-image {
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+    }
+}
